@@ -115,7 +115,7 @@ public class BubbleShowCase: UIView {
 	public var crossColor: UIColor? { didSet { setNeedsDisplay() } }
 	
     /// Screenshot shadow and bubble custom corner radius
-    public var cornerRadius: CGFloat = 5
+    public var targetCornerRadius: CGFloat = 5
     
     
 	/**
@@ -985,7 +985,7 @@ public class BubbleShowCase: UIView {
 		
 		screenshotContainer.addConstraints([top, leading, trailing, bottom])
 		
-		screenshotShadow.layer.cornerRadius = cornerRadius
+		screenshotShadow.layer.cornerRadius = targetCornerRadius
 		screenshotShadow.layer.masksToBounds = true
 		screenshotShadow.backgroundColor =  self.shouldWhitenScreenshot ? .white : .clear
 		
@@ -1025,7 +1025,7 @@ public class BubbleShowCase: UIView {
 	// Embeds the bubble in the show case view and places it next to the target according to the arrow direction
 	private func embedBubble() {
 		bubble = UIView()
-		bubble.layer.cornerRadius = cornerRadius
+		bubble.layer.cornerRadius = 5
 		bubble.clipsToBounds = false
 		bubble.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(bubble)
