@@ -116,7 +116,7 @@ public class BubbleShowCase: UIView {
 	
     /// Screenshot shadow and bubble custom corner radius
     public var targetCornerRadius: CGFloat = 5
-    
+    public var bubbleCornerRadius: CGFloat = 5
     
 	/**
 	Image set on the left side of the show case.
@@ -1025,7 +1025,7 @@ public class BubbleShowCase: UIView {
 	// Embeds the bubble in the show case view and places it next to the target according to the arrow direction
 	private func embedBubble() {
 		bubble = UIView()
-		bubble.layer.cornerRadius = 5
+		bubble.layer.cornerRadius = bubbleCornerRadius
 		bubble.clipsToBounds = false
 		bubble.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(bubble)
