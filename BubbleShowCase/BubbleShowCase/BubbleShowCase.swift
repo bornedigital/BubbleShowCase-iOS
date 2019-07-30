@@ -114,6 +114,10 @@ public class BubbleShowCase: UIView {
 	/// Color of the cross on the top right of the show case. If not set, it takes the same color of the text.
 	public var crossColor: UIColor? { didSet { setNeedsDisplay() } }
 	
+    /// Screenshot shadow and bubble custom corner radius
+    public var cornerRadius: CGFloat = 5
+    
+    
 	/**
 	Image set on the left side of the show case.
 	
@@ -981,7 +985,7 @@ public class BubbleShowCase: UIView {
 		
 		screenshotContainer.addConstraints([top, leading, trailing, bottom])
 		
-		screenshotShadow.layer.cornerRadius = 5
+		screenshotShadow.layer.cornerRadius = cornerRadius
 		screenshotShadow.layer.masksToBounds = true
 		screenshotShadow.backgroundColor =  self.shouldWhitenScreenshot ? .white : .clear
 		
@@ -1021,7 +1025,7 @@ public class BubbleShowCase: UIView {
 	// Embeds the bubble in the show case view and places it next to the target according to the arrow direction
 	private func embedBubble() {
 		bubble = UIView()
-		bubble.layer.cornerRadius = 5
+		bubble.layer.cornerRadius = cornerRadius
 		bubble.clipsToBounds = false
 		bubble.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(bubble)
