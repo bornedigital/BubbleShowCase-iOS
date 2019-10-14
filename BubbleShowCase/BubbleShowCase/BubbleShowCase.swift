@@ -495,7 +495,7 @@ public class BubbleShowCase: UIView {
 	private func setUp() {
 		currentOrientation = UIDevice.current.orientation
 		previousOrientation = currentOrientation
-		NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: .UIDeviceOrientationDidChange, object: nil)
 	}
 	
 	// Initializes the show case hierarchy and displays the show case into the screen.
@@ -541,7 +541,7 @@ public class BubbleShowCase: UIView {
 		alpha = 0
 		bubble.alpha = 0
 		screenshotContainer?.alpha = 0
-		screenWindow.bringSubviewToFront(self)
+        screenWindow.bringSubview(toFront: self)
 		UIView.animate(withDuration: showAnimationDuration, animations: { [weak self] in
 			self?.alpha = 1
 			self?.screenshotContainer?.alpha = 1
